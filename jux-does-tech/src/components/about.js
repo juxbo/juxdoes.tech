@@ -8,21 +8,22 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Icon } from "./common/icon"
-import Bio from "./bio"
 import Contact from "./contact"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
-const Intro = ({ startOffset }) => {
+const About = ({ startOffset }) => {
   let parallax
 
   return (
     <>
-      <ParallaxLayer offset={startOffset} speed={0.2}>
-        <Bio />
+      <ParallaxLayer offset={startOffset} speed={0.5}>
+        <div className="card section">
+          <h2>About me</h2>
+          <p>Tescht 123</p>
+        </div>
       </ParallaxLayer>
-      {/* TODO: Add a scroll indicator thingy */}
     </>
   )
 }
 
-export default Intro
+export default About

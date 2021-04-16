@@ -5,6 +5,7 @@ import Background from "../components/background"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Intro from "../components/intro"
+import About from "../components/about"
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
@@ -20,42 +21,48 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       {/* TODO: Fix this container being limited by layout thingy */}
       <Parallax pages={3} ref={parallaxRef} style={{ left: 0 }}>
+        {/* <button onClick={() => parallaxRef.current.scrollTo(4)}>f</button> */}
         <Background />
         <Intro startOffset={0.3} />
+        {/* <Background startOffset={1} /> */}
+        <About startOffset={1.3} />
         <ParallaxLayer offset={2} speed={0.5}>
-          <h2>Personal Blog</h2>
-          <ol style={{ listStyle: `none` }}>
-            {posts.map(post => {
-              const title = post.frontmatter.title || post.fields.slug
+          <div className="card section">
+            <h2>Personal Blog</h2>
+            <ol style={{ listStyle: `none` }}>
+              {posts.map(post => {
+                const title = post.frontmatter.title || post.fields.slug
 
-              return (
-                <li key={post.fields.slug}>
-                  <article
-                    className="post-list-item"
-                    itemScope
-                    itemType="http://schema.org/Article"
-                  >
-                    <header>
-                      <h2>
-                        <Link to={post.fields.slug} itemProp="url">
-                          <span itemProp="headline">{title}</span>
-                        </Link>
-                      </h2>
-                      <small>{post.frontmatter.date}</small>
-                    </header>
-                    <section>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description || post.excerpt,
-                        }}
-                        itemProp="description"
-                      />
-                    </section>
-                  </article>
-                </li>
-              )
-            })}
-          </ol>
+                return (
+                  <li key={post.fields.slug}>
+                    <article
+                      className="post-list-item"
+                      itemScope
+                      itemType="http://schema.org/Article"
+                    >
+                      <header>
+                        <h2>
+                          <Link to={post.fields.slug} itemProp="url">
+                            <span itemProp="headline">{title}</span>
+                          </Link>
+                        </h2>
+                        <small>{post.frontmatter.date}</small>
+                      </header>
+                      <section>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html:
+                              post.frontmatter.description || post.excerpt,
+                          }}
+                          itemProp="description"
+                        />
+                      </section>
+                    </article>
+                  </li>
+                )
+              })}
+            </ol>
+          </div>
         </ParallaxLayer>
       </Parallax>
     </Layout>

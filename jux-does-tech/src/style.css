@@ -319,7 +319,21 @@ a:focus {
     0 8px 4px rgba(0, 0, 0, 0.09), 0 16px 8px rgba(0, 0, 0, 0.09),
     0 32px 16px rgba(0, 0, 0, 0.09);
 }
+.card > :first-child {
+  margin-top: 0;
+}
 
+.section {
+  display: block;
+  margin-bottom: var(--spacing-16);
+  padding-bottom: 1em;
+  font-family: Sans-Serif;
+  background-color: #fff;
+
+  margin: var(--spacing-0) auto;
+  max-width: var(--maxWidth-4xl);
+  padding: var(--spacing-10) var(--spacing-5);
+}
 .bio {
   display: block;
   margin-bottom: var(--spacing-16);

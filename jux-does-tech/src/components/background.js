@@ -17,6 +17,7 @@ const Background = ({ startOffset = 0 }) => {
 
   return (
     <>
+      {/* TODO: Change color of svg's to gray */}
       <ParallaxLayer offset={startOffset} speed={1.5}>
         <img
           src="parallax/aws.svg"
@@ -57,6 +58,16 @@ const Background = ({ startOffset = 0 }) => {
         <img
           src="parallax/aws.svg"
           style={{ width: "50px", marginLeft: "15%" }}
+        />
+      </ParallaxLayer>
+      <ParallaxLayer offset={startOffset + 0.8} speed={-0.5}>
+        <img
+          src="parallax/aws.svg"
+          style={{ width: "50px", marginLeft: "55%" }}
+        />
+        <img
+          src="parallax/aws.svg"
+          style={{ width: "50px", marginLeft: "85%" }}
         />
       </ParallaxLayer>
     </>
