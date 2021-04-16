@@ -60,6 +60,7 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+  --color-background: #efefef;
 }
 
 /* HTML elements */
@@ -81,6 +82,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 footer {
@@ -239,6 +241,9 @@ a:focus {
 }
 
 /* Custom classes */
+.title-contrast {
+  color: #00d703;
+}
 
 .global-wrapper {
   margin: var(--spacing-0) auto;
@@ -286,9 +291,45 @@ a:focus {
   font-size: var(--fontSize-2);
 }
 
+.front,
+.back {
+  background-size: cover;
+}
+
+.c {
+  position: absolute;
+  max-width: 500px;
+  max-height: 500px;
+  width: 50ch;
+  height: 50ch;
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+.back {
+  background-color: #efefef;
+}
+
+.front {
+  background-color: #222222;
+}
+
+.card {
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09),
+    0 8px 4px rgba(0, 0, 0, 0.09), 0 16px 8px rgba(0, 0, 0, 0.09),
+    0 32px 16px rgba(0, 0, 0, 0.09);
+}
+
 .bio {
-  display: flex;
+  display: block;
   margin-bottom: var(--spacing-16);
+  padding-bottom: 1em;
+  font-family: Sans-Serif;
+  background-color: #fff;
+
+  margin: var(--spacing-0) auto;
+  max-width: var(--maxWidth-wrapper);
+  padding: var(--spacing-10) var(--spacing-5);
 }
 
 .bio p {
@@ -323,6 +364,10 @@ a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-top: 2px solid gray;
+  padding-top: 1em;
+  margin-top: 2em;
 }
 .contact-container a {
   margin: auto;

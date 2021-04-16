@@ -26,13 +26,12 @@ const Contact = () => {
   const contacts = data.site.siteMetadata?.contact
 
   return (
-    <div>
-      <h2>Contact me</h2>
-      <div className="contact-container">
-        {contacts?.map(contact => {
-          return <Icon name={contact.name} link={contact.link} />
-        })}
-      </div>
+    <div className="contact-container">
+      {contacts?.map(contact => {
+        return (
+          <Icon key={contact.name} name={contact.name} link={contact.link} />
+        )
+      })}
     </div>
   )
 }

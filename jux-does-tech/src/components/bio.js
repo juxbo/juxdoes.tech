@@ -9,6 +9,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Icon } from "./common/icon"
+import Contact from "./contact"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -17,6 +18,7 @@ const Bio = () => {
         siteMetadata {
           author {
             name
+            shortname
             subtitle
           }
           contact {
@@ -33,28 +35,21 @@ const Bio = () => {
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author
-  const contacts = data.site.siteMetadata?.contact
 
   return (
-    <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["AUTO", "WEBP", "AVIF"]}
-        src="../images/profile-pic.png"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
+    <div className="bio card">
       {author?.name && (
-        <p>
-          Hi I'm <strong>{author.name}</strong>
-          <br />
-          {author?.subtitle || null}
-          {` `}
-        </p>
+        <div style={{ margin: "0 2em" }}>
+          <h2 style={{ margin: 0 }}>
+            Hi! I'm <strong>{author.name}</strong>
+          </h2>
+          <h3 style={{ margin: 0, fontWeight: "normal" }}>
+            - or {author.shortname} for short.
+          </h3>
+          <h2 style={{ fontWeight: "normal" }}>{author?.subtitle || null}</h2>
+        </div>
       )}
+      <Contact />
     </div>
   )
 }

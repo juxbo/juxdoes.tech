@@ -10,12 +10,16 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Icon } from "./common/icon"
 import Bio from "./bio"
 import Contact from "./contact"
+import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
-const Intro = () => {
+const Intro = ({ startOffset }) => {
+  let parallax
+
   return (
     <>
-      <Bio />
-      <Contact />
+      <ParallaxLayer offset={startOffset} speed={0.5}>
+        <Bio />
+      </ParallaxLayer>
     </>
   )
 }

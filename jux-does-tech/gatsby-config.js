@@ -2,8 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `juxdoes.tech`,
     author: {
-      name: `Justin Boehm`,
-      subtitle: `I like tech and cars.`,
+      name: `Justin`,
+      shortname: `Jux`,
+      subtitle: `I do tech stuff.`,
     },
     contact: [
       {

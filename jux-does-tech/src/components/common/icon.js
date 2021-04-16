@@ -18,7 +18,7 @@ export const Icon = ({ name, link }) => {
   }
 
   return (
-    <a href={link} className={`hoverable-icon ${name}`}>
+    <a href={link} className={`hoverable-icon ${name}`} target="_blank">
       {getIcon(name)}
     </a>
   )
