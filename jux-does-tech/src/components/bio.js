@@ -50,6 +50,7 @@ const Bio = ({ handler }) => {
           <h2 style={{ fontSize: "2em", fontWeight: 1000 }}>
             <Tescht open={true} subtitle={author?.subtitle} />
           </h2>
+          {/* TODO: This should scroll down but it doesn't */}
           {/* <a onClick={handler} href="#">
             Learn more about me...
           </a> */}

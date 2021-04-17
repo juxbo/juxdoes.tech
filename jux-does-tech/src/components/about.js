@@ -27,7 +27,17 @@ const About = ({ startOffset }) => {
       <ParallaxLayer offset={1.1} speed={0.2}>
         <div className="card section">
           <h2>About me</h2>
-          <p>Tescht 123</p>
+          <p>
+            I'm a software engineering student from Germany and I'm currently in
+            pursuit of my masters degree in computer science. I love everything
+            you can consider tech, whether it's computers, phones, wearables,
+            cameras or even cars.
+          </p>
+          <h3>My experience</h3>
+          <p>
+            All throughout my academic career I've worked as a software
+            developer for a big german bank on the side in part time.
+          </p>
         </div>
       </ParallaxLayer>
     </>
