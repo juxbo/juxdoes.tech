@@ -12,13 +12,19 @@ import Bio from "./bio"
 import Contact from "./contact"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
-const Intro = ({ startOffset }) => {
+const Intro = ({ startOffset, handler }) => {
   let parallax
 
   return (
     <>
+      <ParallaxLayer
+        offset={0.1}
+        speed={0.1}
+        factor={0.8}
+        className="background-tile-tr background-tile-right"
+      />
       <ParallaxLayer offset={startOffset} speed={0.2}>
-        <Bio />
+        <Bio handler={handler} />
       </ParallaxLayer>
       {/* TODO: Add a scroll indicator thingy */}
     </>

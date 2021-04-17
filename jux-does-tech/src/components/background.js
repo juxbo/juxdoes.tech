@@ -11,64 +11,38 @@ import { Icon } from "./common/icon"
 import Bio from "./bio"
 import Contact from "./contact"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import Github from "../icons/github.svg"
 
 const Background = ({ startOffset = 0 }) => {
   let parallax
+  const color = "#fff"
 
   return (
     <>
       {/* TODO: Change color of svg's to gray */}
-      <ParallaxLayer offset={startOffset} speed={1.5}>
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "95%" }}
-        />
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "15%" }}
-        />
+      <ParallaxLayer offset={startOffset} speed={1.5} factor={2}>
+        <Github style={{ fill: color, width: "50px", marginLeft: "95%" }} />
+        <Github style={{ fill: color, width: "50px", marginLeft: "15%" }} />
       </ParallaxLayer>
-      <ParallaxLayer offset={startOffset + 0.2} speed={0.2}>
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "5%" }}
-        />
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "80px", marginLeft: "55%" }}
-        />
+      <ParallaxLayer offset={startOffset + 0.2} speed={-0.4} factor={2}>
+        <Github style={{ fill: color, width: "50px", marginLeft: "5%" }} />
+        <Github style={{ fill: color, width: "30px", marginLeft: "87%" }} />
       </ParallaxLayer>
-      <ParallaxLayer offset={startOffset + 0.4} speed={0.6}>
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "150px", marginLeft: "15%" }}
-        />
+      <ParallaxLayer offset={startOffset + 0.4} speed={0.6} factor={2}>
+        <Github style={{ fill: color, width: "30px", marginLeft: "52%" }} />
+        <Github style={{ fill: color, width: "20px", marginLeft: "34%" }} />
       </ParallaxLayer>
       <ParallaxLayer offset={startOffset + 0.6} speed={0.8}>
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "78%" }}
-        />
+        <Github style={{ fill: color, width: "20px", marginLeft: "34%" }} />
+        <Github style={{ fill: color, width: "70px", marginLeft: "90%" }} />
       </ParallaxLayer>
       <ParallaxLayer offset={startOffset + 0.8} speed={1.5}>
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "95%" }}
-        />
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "15%" }}
-        />
+        <Github style={{ fill: color, width: "30px", marginLeft: "43%" }} />
+        <Github style={{ fill: color, width: "60px", marginLeft: "98%" }} />
       </ParallaxLayer>
       <ParallaxLayer offset={startOffset + 0.8} speed={-0.5}>
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "55%" }}
-        />
-        <img
-          src="parallax/aws.svg"
-          style={{ width: "50px", marginLeft: "85%" }}
-        />
+        <Github style={{ fill: color, width: "50px", marginLeft: "15%" }} />
+        <Github style={{ fill: color, width: "40px", marginLeft: "88%" }} />
       </ParallaxLayer>
     </>
   )

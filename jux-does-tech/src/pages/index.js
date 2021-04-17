@@ -16,19 +16,39 @@ const BlogIndex = ({ data, location }) => {
   let parallax
   const parallaxRef = React.useRef(null)
 
+  const onScroll = () =>
+    console.log(parallaxRef.current.current / parallaxRef.current.space)
+
+  React.useEffect(() => {
+    if (!parallaxRef.current || !parallaxRef.current.container) return
+    parallaxRef.current.container.onscroll = onScroll
+  })
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       {/* TODO: Fix this container being limited by layout thingy */}
-      <Parallax pages={3} ref={parallaxRef} style={{ left: 0 }}>
+      <Parallax pages={2.5} ref={parallaxRef} style={{ left: 0 }}>
         {/* <button onClick={() => parallaxRef.current.scrollTo(4)}>f</button> */}
-        <Background />
-        <Intro startOffset={0.3} />
+        {/* <Background /> */}
+        <Intro
+          startOffset={0.3}
+          handler={() => {
+            console.log("teschsifauhaiu")
+          }}
+        />
+        <About startOffset={1} />
         {/* <Background startOffset={1} /> */}
-        <About startOffset={1.3} />
-        <ParallaxLayer offset={2} speed={0.5}>
-          <div className="card section">
-            <h2>Personal Blog</h2>
+        <ParallaxLayer
+          offset={1.9}
+          speed={0.4}
+          className="background-tile-white"
+          factor={2}
+        />
+        {/* TODO: Paginate (pagesize 4) */}
+        <ParallaxLayer offset={2} speed={0.3}>
+          <div className="section">
+            <h2>My personal Blog</h2>
             <ol style={{ listStyle: `none` }}>
               {posts.map(post => {
                 const title = post.frontmatter.title || post.fields.slug
