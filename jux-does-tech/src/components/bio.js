@@ -11,6 +11,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { Icon } from "./common/icon"
 import Contact from "./contact"
 import { useTrail, a } from "@react-spring/web"
+import VisibilitySensor from "react-visibility-sensor"
 
 const Bio = ({ handler }) => {
   const data = useStaticQuery(graphql`
@@ -34,6 +35,8 @@ const Bio = ({ handler }) => {
     }
   `)
 
+  const [visible, setVisible] = React.useState(false)
+
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author
 
@@ -48,7 +51,14 @@ const Bio = ({ handler }) => {
             - or {author.shortname} for short.
           </h3>
           <h2 style={{ fontSize: "2em", fontWeight: 1000 }}>
-            <Tescht open={true} subtitle={author?.subtitle} />
+            <VisibilitySensor
+              onChange={isVis => {
+                // Only set to true the first time its visible
+                if (isVis) setVisible(true)
+              }}
+            >
+              <Tescht open={visible} subtitle={author?.subtitle} />
+            </VisibilitySensor>
           </h2>
           {/* TODO: This should scroll down but it doesn't */}
           {/* <a onClick={handler} href="#">

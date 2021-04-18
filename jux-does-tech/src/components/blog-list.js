@@ -9,7 +9,7 @@ const BlogList = ({ posts }) => {
         offset={1.9}
         speed={0.4}
         className="background-tile-white"
-        factor={2}
+        factor={1.5}
       />
       {/* TODO: Paginate (pagesize 4) */}
       <ParallaxLayer offset={2} speed={0.3}>

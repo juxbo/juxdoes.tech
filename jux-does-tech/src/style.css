@@ -54,9 +54,9 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+  --color-primary: #3fcccc;
   --color-text: #2e353f;
-  --color-text-light: #4f5969;
+  --color-text-light: #2b8b8b;
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
@@ -83,6 +83,11 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
   background-color: var(--color-background);
+
+  background-color: --color-background;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23a8ffff' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23679d9d' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%239cfff7' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%2343b0a5' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%2393ffec' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%2301c2a2' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%238fffde' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%2300d393' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%2390ffce' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%230be379' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%2396febc' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%2351f052' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 footer {
@@ -240,6 +245,9 @@ a:focus {
   text-decoration: none;
 }
 
+pre[class*="language-"] {
+  background: #fff !important;
+}
 /* Custom classes */
 .title-contrast {
   color: #00d703;
@@ -336,7 +344,7 @@ a:focus {
 }
 .background-tile-white {
   background-color: #fff;
-  clip-path: polygon(0px 2.79%, 99.95% 9.23%, 100.05% 102.71%, 2px 102.68%);
+  clip-path: polygon(0px 2.79%, 99.95% 9.23%, 99.99% 80.57%, 8px 99.61%);
 }
 .background-tile-left {
   clip-path: polygon(0 2.79%, 99.9% 10.27%, 99.75% 67.44%, 0 85.86%);
@@ -417,9 +425,15 @@ a:focus {
 .hoverable-icon.linkedin svg:hover {
   fill: #0a66c2;
 }
+.parallax-footer {
+  background-color: transparent;
+}
+.credits svg {
+  width: 1.5em;
+  vertical-align: middle;
+}
 
 /* Media queries */
-
 @media (max-width: 42rem) {
   blockquote {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);

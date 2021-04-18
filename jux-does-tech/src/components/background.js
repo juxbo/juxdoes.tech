@@ -24,7 +24,7 @@ const Background = ({ startOffset = 0 }) => {
         <Github style={{ fill: color, width: "50px", marginLeft: "95%" }} />
         <Github style={{ fill: color, width: "50px", marginLeft: "15%" }} />
       </ParallaxLayer>
-      <ParallaxLayer offset={startOffset + 0.2} speed={-0.4} factor={2}>
+      <ParallaxLayer offset={startOffset + 0.2} speed={-0.4}>
         <Github style={{ fill: color, width: "50px", marginLeft: "5%" }} />
         <Github style={{ fill: color, width: "30px", marginLeft: "87%" }} />
       </ParallaxLayer>

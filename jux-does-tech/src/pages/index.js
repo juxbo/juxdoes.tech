@@ -8,9 +8,13 @@ import Intro from "../components/intro"
 import About from "../components/about"
 import BlogList from "../components/blog-list"
 
-import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import Aws from "../icons/aws.svg"
+import Heart from "../icons/heart.svg"
 
-const BlogIndex = ({ data, location }) => {
+import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import { Spring } from "@react-spring/web"
+
+const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || "juxdoes"
   const posts = data.allMarkdownRemark.nodes
 
@@ -20,7 +24,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Home" />
       {/* TODO: Fix this container being limited by layout thingy */}
       <Parallax pages={3} ref={parallaxRef} style={{ left: 0 }}>
         {/* <button onClick={() => parallaxRef.current.scrollTo(4)}>f</button> */}
@@ -35,11 +39,24 @@ const BlogIndex = ({ data, location }) => {
         {/* <Background startOffset={1} /> */}
         <BlogList posts={posts} />
         {/* TODO: Built-with section */}
-        <ParallaxLayer offset={2.5}>
-          <div className="section">
-            <p>This page was built using GatsbyJS, deployed on AWS </p>
+        <ParallaxLayer offset={3.8} speed={0.6} className="parallax-footer">
+          <div className="section credits" style={{ fontSize: "12px" }}>
+            <strong>
+              Built with <Heart /> by{" "}
+              <a href="https://github.com/mrzeldaguy">Jux</a>
+            </strong>
+            <p>
+              Powered by <a href="https://www.gatsbyjs.com/">Gatsby</a>
+              <br />
+              Deployed on <Aws alt={"aws"} />
+              <br />
+              Background generated via{" "}
+              <a href="https://www.svgbackgrounds.com">SVGBackgrounds.com</a>
+            </p>
             {/* TODO: Find out if I need this shit */}
-            <a href="/impressum">impressum</a>
+            <a href="/impressum" style={{ marginRight: ".5em" }}>
+              impressum
+            </a>
             <a href="/privacy-policy">privacy-policy</a>
           </div>
         </ParallaxLayer>
@@ -48,7 +65,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
