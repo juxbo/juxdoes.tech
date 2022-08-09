@@ -44,13 +44,29 @@ const Bio = ({ handler }) => {
     <div className="bio card">
       {author?.name && (
         <div style={{ margin: "0 2em" }}>
+          <p class="bio-text">Hi there! My name is...</p>
           <h2 style={{ margin: 0 }}>
-            Hi! I'm <strong>{author.name}</strong>
+            <i>
+              <strong>{author.name}</strong>, aka <q>{author.shortname}</q>
+            </i>
           </h2>
-          <h3 style={{ margin: 0, fontWeight: "normal" }}>
-            - or {author.shortname} for short.
-          </h3>
-          <h2 style={{ fontSize: "2em", fontWeight: 1000 }}>
+          <h5 style={{ margin: 0, marginBottom: ".5em", fontWeight: "normal" }}>
+            Software Engineer and Tech Enthusiast
+          </h5>
+          <p>
+            I'm a computer science student from germany that loves basically
+            everything you can consider tech, whether it's computers, phones,
+            wearables, cameras or even cars. Currently, I'm employed as a
+            working student for Commerzbank AG.
+          </p>
+          <h2
+            style={{
+              fontSize: "2em",
+              fontWeight: 1000,
+              marginTop: ".5em",
+              fontStyle: "italic",
+            }}
+          >
             <VisibilitySensor
               onChange={isVis => {
                 // Only set to true the first time its visible

@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+/jux-does-tech/public-old
+.firebase

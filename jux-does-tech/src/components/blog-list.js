@@ -16,7 +16,7 @@ const BlogList = ({ posts }) => {
         <div className="section">
           <h2>My personal Blog</h2>
           <ol style={{ listStyle: `none` }}>
-            {posts.map(post => {
+            {posts.slice(0, 3).map(post => {
               const title = post.frontmatter.title || post.fields.slug
 
               return (
@@ -46,6 +46,9 @@ const BlogList = ({ posts }) => {
                 </li>
               )
             })}
+            {/* <li>
+              <button>Read all posts</button>
+            </li> */}
           </ol>
         </div>
       </ParallaxLayer>

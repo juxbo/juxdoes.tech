@@ -60,7 +60,7 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
-  --color-background: #efefef;
+  --color-background: #212329;
 }
 
 /* HTML elements */
@@ -399,6 +399,10 @@ pre[class*="language-"] {
   margin: var(--spacing-0);
 }
 
+.blog-post-nav a {
+  text-shadow: 0px 1px 1px #00000085;
+}
+
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
 }
@@ -428,9 +432,31 @@ pre[class*="language-"] {
 .parallax-footer {
   background-color: transparent;
 }
+.credits {
+  color: var(--color-accent);
+}
 .credits svg {
   width: 1.5em;
   vertical-align: middle;
+}
+.bio-text {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  color: var(--color-primary);
+  line-height: normal;
+}
+.blog-post section,
+.blog-post header {
+  color: var(--color-accent);
+}
+.blog-post header h1 {
+  color: #fff;
+}
+.blog-post section h2,
+.blog-post section h3,
+.blog-post section h4,
+.blog-post section h5,
+.blog-post section h6 {
+  color: var(--color-primary);
 }
 
 /* Media queries */

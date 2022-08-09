@@ -23,20 +23,21 @@ const About = ({ startOffset }) => {
         speed={0.3}
         factor={0.8}
       />
-      <Background startOffset={1} />
+      {/* <Background startOffset={1} /> */}
       <ParallaxLayer offset={1.1} speed={0.2}>
         <div className="card section">
           <h2>About me</h2>
           <p>
-            I'm a software engineering student from Germany and I'm currently in
-            pursuit of my masters degree in computer science. I love everything
-            you can consider tech, whether it's computers, phones, wearables,
-            cameras or even cars.
+            I'm a computer science student from germany that loves basically
+            everything you can consider tech, whether it's computers, phones,
+            wearables, cameras or cars. I'm currently employed as a working
+            student for Commerzbank AG, where I've worked on a few different
+            projects as a full-stack developer.
           </p>
           <h3>My experience</h3>
           <p>
-            All throughout my academic career I've worked as a software
-            developer for a big german bank on the side in part time.
+            I started out as a Java Backend Developer, but am currently working
+            the full-stack. (TODO: Put some skills here LOL)
           </p>
         </div>
       </ParallaxLayer>

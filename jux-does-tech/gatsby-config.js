@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `juxdoes.tech`,
+    title: `juxco.de`,
     author: {
-      name: `Justin`,
+      name: `Justin Böhm`,
       shortname: `Jux`,
       subtitle: `I do tech stuff.`,
     },
@@ -15,13 +15,9 @@ module.exports = {
         name: "linkedin",
         link: "https://www.linkedin.com/in/justin-b%C3%B6hm-60b002192/",
       },
-      {
-        name: "mail",
-        link: "mailto:justin@juxdoes.tech",
-      },
     ],
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `My personal blog.`,
+    siteUrl: `https://juxco.de/`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -124,8 +120,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `juxdoes.tech blog`,
-        short_name: `juxdoes.tech`,
+        name: `juxco.de blog`,
+        short_name: `juxco.de`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

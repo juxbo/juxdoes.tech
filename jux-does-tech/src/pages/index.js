@@ -30,7 +30,7 @@ const Index = ({ data, location }) => {
         {/* <button onClick={() => parallaxRef.current.scrollTo(4)}>f</button> */}
         {/* <Background /> */}
         <Intro
-          startOffset={0.3}
+          startOffset={0.2}
           handler={() => {
             // TODO:
           }}
