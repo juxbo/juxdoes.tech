@@ -35,6 +35,7 @@ const Skills = ({ startOffset }) => {
         <AnimatedHeader text="Skills." />
       </ParallaxLayer>
       <ParallaxLayer offset={startOffset + 0.2} speed={0.2}>
+        {/* TODO: Create section component, allow multiple foldable sub-categories */}
         <div className="card section">
           <h2>Java</h2>
           <Progress max={90} />
@@ -44,11 +45,12 @@ const Skills = ({ startOffset }) => {
           <Progress max={55} />
         </div>
         <div className="card section">
-          <h2>Something</h2>
+          <h2>Data stores</h2>
           <Progress max={95} />
         </div>
         <div className="card section">
-          <h2>Something</h2>
+          <h2>Other</h2>
+          <p>Python, Lisp, C++11</p>
           <Progress max={15} />
         </div>
       </ParallaxLayer>
