@@ -12,8 +12,9 @@ import { Icon } from "./common/icon"
 import Contact from "./contact"
 import { useTrail, a } from "@react-spring/web"
 import VisibilitySensor from "react-visibility-sensor"
+import AnimatedText from "./common/animatedText"
 
-const Bio = ({ handler }) => {
+const Bio = ({}) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       site {
@@ -44,21 +45,19 @@ const Bio = ({ handler }) => {
     <div className="bio card">
       {author?.name && (
         <div style={{ margin: "0 2em" }}>
-          <p class="bio-text">Hi there! My name is...</p>
+          <p className="bio-text">Hi there! My name is...</p>
           <h2 style={{ margin: 0 }}>
-            <i>
-              <strong>{author.name}</strong>, aka <q>{author.shortname}</q>
-            </i>
+            <strong>{author.name}</strong>, aka <q>{author.shortname}</q>
           </h2>
           <h5 style={{ margin: 0, marginBottom: ".5em", fontWeight: "normal" }}>
             Software Engineer and Tech Enthusiast
           </h5>
-          <p>
+          {/* <p>
             I'm a computer science student from germany that loves basically
             everything you can consider tech, whether it's computers, phones,
-            wearables, cameras or even cars. Currently, I'm employed as a
-            working student for Commerzbank AG.
-          </p>
+            wearables, cameras or even cars. Feel free to contact me on my
+            socials linked below.
+          </p> */}
           <h2
             style={{
               fontSize: "2em",
@@ -73,67 +72,13 @@ const Bio = ({ handler }) => {
                 if (isVis) setVisible(true)
               }}
             >
-              <Tescht open={visible} subtitle={author?.subtitle} />
+              <AnimatedText open={visible} text={author?.subtitle} />
             </VisibilitySensor>
           </h2>
-          {/* TODO: This should scroll down but it doesn't */}
-          {/* <a onClick={handler} href="#">
-            Learn more about me...
-          </a> */}
         </div>
       )}
       <Contact />
     </div>
-  )
-}
-
-const Tescht = ({ open, subtitle, ...props }) => {
-  const [done, setDone] = React.useState(0)
-  const array = subtitle.split(" ")
-  const [items, set] = React.useState(array)
-  const trail = useTrail(items.length, {
-    config: { mass: 20, tension: 2000, friction: 200 },
-    opacity: open ? 1 : 0,
-    x: open ? 0 : 20,
-    from: { opacity: 0, x: 20, height: 0 },
-    delay: 200,
-    onRest: () => {
-      setDone(done + 1)
-    },
-  })
-  if (done == array.length) {
-    return (
-      <>
-        {array.map(val => {
-          return (
-            <div
-              key={val}
-              style={{ display: "inline-block", marginRight: ".2em" }}
-            >
-              {val}
-            </div>
-          )
-        })}
-      </>
-    )
-  }
-
-  return (
-    <>
-      {trail.map(({ x, height, ...props }, index) => (
-        <a.div
-          key={items[index]}
-          style={{
-            ...props,
-            display: "inline-block",
-            transform: x.to(x => `translate3d(0,${x}px,0)`),
-            marginRight: ".2em",
-          }}
-        >
-          <a.div>{items[index]}</a.div>
-        </a.div>
-      ))}
-    </>
   )
 }
 

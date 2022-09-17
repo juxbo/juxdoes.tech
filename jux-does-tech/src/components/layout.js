@@ -1,11 +1,13 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import FooterContent from "./common/footerContent"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const titleArr = title.split(".")
   let header
+  let footer
 
   if (isRootPath) {
     header = (
@@ -17,6 +19,7 @@ const Layout = ({ location, title, children }) => {
       //   </Link>
       // </h1>
     )
+    footer = <></>
   } else {
     header = (
       <header className="global-header">
@@ -25,6 +28,7 @@ const Layout = ({ location, title, children }) => {
         </Link>
       </header>
     )
+    footer = <FooterContent />
   }
 
   return (
@@ -34,11 +38,7 @@ const Layout = ({ location, title, children }) => {
     >
       {header}
       <main>{children}</main>
-      <footer>
-        {/* © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a> */}
-      </footer>
+      {footer}
     </div>
   )
 }

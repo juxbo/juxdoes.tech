@@ -6,10 +6,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Intro from "../components/intro"
 import About from "../components/about"
-import BlogList from "../components/blog-list"
+import ProjectList from "../components/project-list"
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
+// TODO: Rename to project
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || "juxdoes"
   const posts = data.allMarkdownRemark.nodes
@@ -21,7 +22,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
-      <BlogList posts={posts} />
+      <ProjectList posts={posts} />
       <div className="section">
         <p>This page was built using GatsbyJS, deployed on AWS </p>
         {/* TODO: Find out if I need this shit */}

@@ -1,22 +1,36 @@
 import * as React from "react"
 import { ParallaxLayer } from "@react-spring/parallax"
 import { Link, graphql } from "gatsby"
+import AnimatedHeader from "./common/animatedHeader"
 
-const BlogList = ({ posts }) => {
+const ProjectList = ({ posts, startOffset }) => {
   return (
     <>
       <ParallaxLayer
-        offset={1.9}
-        speed={0.4}
-        className="background-tile-white"
+        offset={startOffset - 0.1}
+        speed={0.3}
+        className="background-tile-white background-tile-sticky"
         factor={1.5}
       />
-      {/* TODO: Paginate (pagesize 4) */}
-      <ParallaxLayer offset={2} speed={0.3}>
+      <ParallaxLayer
+        // offset={startOffset + 0.1}
+        //speed={0.2}
+        sticky={{ start: startOffset, end: startOffset + 2 }}
+        style={{
+          paddingTop: "2em",
+          left: "1em",
+          width: "300px",
+          height: "auto",
+        }}
+      >
+        <AnimatedHeader text="Projects." />
+      </ParallaxLayer>
+      <ParallaxLayer offset={startOffset + 0.1} speed={0.4}>
         <div className="section">
-          <h2>My personal Blog</h2>
+          <h2>My latest projects</h2>
           <ol style={{ listStyle: `none` }}>
-            {posts.slice(0, 3).map(post => {
+            {/* TODO: Paginate (pagesize 4) */}
+            {posts.slice(0, 4).map(post => {
               const title = post.frontmatter.title || post.fields.slug
 
               return (
@@ -56,4 +70,4 @@ const BlogList = ({ posts }) => {
   )
 }
 
-export default BlogList
+export default ProjectList

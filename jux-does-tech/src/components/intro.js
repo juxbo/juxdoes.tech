@@ -11,22 +11,32 @@ import { Icon } from "./common/icon"
 import Bio from "./bio"
 import Contact from "./contact"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import ScrollIndicator from "./common/scrollIndicator"
+import AnimatedText from "./common/animatedText"
 
 const Intro = ({ startOffset, handler }) => {
-  let parallax
-
   return (
     <>
-      <ParallaxLayer
-        offset={0.1}
-        speed={0.1}
-        factor={0.8}
-        className="background-tile-tr background-tile-right"
-      />
-      <ParallaxLayer offset={startOffset} speed={0.2}>
-        <Bio handler={handler} />
+      <ParallaxLayer offset={startOffset} speed={1}>
+        <div className="section intro">
+          <h2>Hi there! I'm...</h2>
+          <h1>
+            <strong>Justin Böhm</strong>
+          </h1>
+          <h1>
+            <AnimatedText
+              open={true}
+              text={"Software engineer and tech enthusiast."}
+            />
+          </h1>
+        </div>
       </ParallaxLayer>
-      {/* TODO: Add a scroll indicator thingy */}
+      <div
+        style={{ display: "flex", justifyContent: "center" }}
+        onClick={handler}
+      >
+        <ScrollIndicator />
+      </div>
     </>
   )
 }

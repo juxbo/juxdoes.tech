@@ -18,13 +18,17 @@ const About = ({ startOffset }) => {
   return (
     <>
       <ParallaxLayer
-        className="background-tile-gr background-tile-left"
-        offset={1}
+        className="background-tile-gr background-tile-right"
+        offset={startOffset}
         speed={0.3}
         factor={0.8}
       />
       {/* <Background startOffset={1} /> */}
-      <ParallaxLayer offset={1.1} speed={0.2}>
+      <ParallaxLayer
+        offset={startOffset + 0.1}
+        speed={0.2}
+        // sticky={{ start: startOffset, end: 4 }}
+      >
         <div className="card section">
           <h2>About me</h2>
           <p>
@@ -37,7 +41,7 @@ const About = ({ startOffset }) => {
           <h3>My experience</h3>
           <p>
             I started out as a Java Backend Developer, but am currently working
-            the full-stack. (TODO: Put some skills here LOL)
+            the full-stack. (TODO: Put some skills here)
           </p>
         </div>
       </ParallaxLayer>
