@@ -12,10 +12,11 @@ const ProjectList = ({ posts, startOffset }) => {
         className="background-tile-white background-tile-sticky"
         factor={1.5}
       />
+      {/* TODO: FIX THIS HEADER NOT STICKING CORRECTLY SOMETIMES */}
       <ParallaxLayer
         // offset={startOffset + 0.1}
         //speed={0.2}
-        sticky={{ start: startOffset, end: startOffset + 2 }}
+        sticky={{ start: startOffset - 0.1, end: startOffset + 2 }}
         style={{
           paddingTop: "2em",
           left: "1em",
@@ -25,8 +26,8 @@ const ProjectList = ({ posts, startOffset }) => {
       >
         <AnimatedHeader text="Projects." />
       </ParallaxLayer>
-      <ParallaxLayer offset={startOffset + 0.1} speed={0.4}>
-        <div className="section">
+      <ParallaxLayer offset={startOffset} speed={0.4}>
+        <div className="section bg-white">
           <h2>My latest projects</h2>
           <ol style={{ listStyle: `none` }}>
             {/* TODO: Paginate (pagesize 4) */}
