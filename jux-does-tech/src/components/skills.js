@@ -53,6 +53,49 @@ const skillTree = [
     ],
   },
   {
+    name: "General SE Knowledge",
+    progress: 90,
+    icon: faUserGroup,
+    children: [
+      {
+        name: "SCRUM",
+        progress: 90,
+      },
+      {
+        name: "Git",
+        progress: 85,
+      },
+      {
+        name: "SVN",
+        progress: 85,
+      },
+      {
+        name: "OpenAPI",
+        progress: 80,
+      },
+      {
+        name: "UX research",
+        progress: 60,
+      },
+      {
+        name: "Unix",
+        progress: 55,
+      },
+      {
+        name: "Bash",
+        progress: 50,
+      },
+      {
+        name: "Atlassian Tools (Jira, Confluence)",
+        progress: 75,
+      },
+      {
+        name: "Sonarqube",
+        progress: 75,
+      },
+    ],
+  },
+  {
     name: "Data stores",
     progress: 75,
     icon: faDatabase,
@@ -148,49 +191,6 @@ const skillTree = [
     ],
   },
   {
-    name: "General SE Knowledge",
-    progress: 90,
-    icon: faUserGroup,
-    children: [
-      {
-        name: "SCRUM",
-        progress: 90,
-      },
-      {
-        name: "Git",
-        progress: 85,
-      },
-      {
-        name: "SVN",
-        progress: 85,
-      },
-      {
-        name: "OpenAPI",
-        progress: 80,
-      },
-      {
-        name: "UX research",
-        progress: 60,
-      },
-      {
-        name: "Unix",
-        progress: 55,
-      },
-      {
-        name: "Bash",
-        progress: 50,
-      },
-      {
-        name: "Atlassian Tools (Jira, Confluence)",
-        progress: 75,
-      },
-      {
-        name: "Sonarqube",
-        progress: 75,
-      },
-    ],
-  },
-  {
     name: "Other",
     progress: 20,
     icon: faPython,
@@ -216,8 +216,6 @@ const skillTree = [
 ]
 
 const Skills = ({ startOffset }) => {
-  let parallax
-
   return (
     <>
       <ParallaxLayer
@@ -237,7 +235,7 @@ const Skills = ({ startOffset }) => {
       </ParallaxLayer>
       <ParallaxLayer offset={startOffset + 0.2} speed={0.2}>
         {/* TODO: Create section component, allow multiple foldable sub-categories */}
-        {skillTree.map(obj => {
+        {skillTree.map((obj, i) => {
           return (
             <SkillSection
               key={obj.name}
@@ -255,7 +253,14 @@ const Skills = ({ startOffset }) => {
 
 // TODO: Show summary of children as text by flat mapping without expand
 // TODO: Collapse others on expand
-const SkillSection = ({ name, progress, children, condensed, icon }) => {
+const SkillSection = ({
+  name,
+  progress,
+  children,
+  condensed,
+  icon,
+  onExpand,
+}) => {
   const [isOpen, setOpen] = React.useState(false)
   const [ref, { height: viewHeight }] = useMeasure()
   const { height, opacity, y } = useSpring({
@@ -295,6 +300,7 @@ const SkillSection = ({ name, progress, children, condensed, icon }) => {
         </a.div>
       </a.div>
       <div className="expand-indicator" onClick={() => setOpen(!isOpen)}>
+        <span>{isOpen ? "Hide" : "Show"} details</span>
         <TurnArrow open={isOpen} />
       </div>
     </div>
@@ -369,9 +375,13 @@ const SkillEntry = ({ name, icon, progress, condensed, summary }) => {
           </h2>
         )}
         {/* TODO: Build string from array, and add X others */}
-        <p className="skill-entry-summary-text">{summary.join(", ")}</p>
+        <p
+          className={`skill-entry-summary-text ${condensed ? "no-margin" : ""}`}
+        >
+          {summary.join(", ")}
+        </p>
       </div>
-      <Progress max={progress} showText={!condensed} />
+      <Progress max={progress} showText={!condensed} condensed={condensed} />
     </div>
   )
 }

@@ -4,14 +4,19 @@ import VisibilitySensor from "react-visibility-sensor"
 
 import * as styles from "./progress.module.css"
 
-const Progress = ({ max = 100, showText = true, ...props }) => {
+const Progress = ({
+  max = 100,
+  showText = true,
+  condensed = false,
+  ...props
+}) => {
   const [isVis, setVisible] = React.useState(false)
   const spring = useSpring({
     width: isVis ? max + "%" : "0%",
   })
 
   return (
-    <div className={styles.outer}>
+    <div className={styles.outer} style={{ height: condensed ? 20 : 50 }}>
       <VisibilitySensor
         onChange={vis => {
           // Only set to true the first time its visible

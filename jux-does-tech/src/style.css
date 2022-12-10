@@ -547,6 +547,10 @@ pre[class*="language-"] {
 .expand-indicator:hover {
   background-color: var(--color-accent);
 }
+.expand-indicator span {
+  margin-right: 1em;
+  user-select: none;
+}
 .main-nav {
   float: left;
   position: absolute;
@@ -580,6 +584,10 @@ pre[class*="language-"] {
 
 .main-nav a:active {
   color: var(--color-text-light);
+}
+
+.no-margin {
+  margin: 0;
 }
 
 /* Media queries */
