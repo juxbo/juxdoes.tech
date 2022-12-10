@@ -125,6 +125,45 @@ const skillTree = [
     ],
   },
   {
+    name: "Frontend, JS & Web",
+    progress: 40,
+    icon: faJs,
+    children: [
+      {
+        name: "React",
+        progress: 85,
+      },
+      {
+        name: "HTML + CSS",
+        progress: 85,
+      },
+      {
+        name: "Vue 3",
+        progress: 55,
+      },
+      {
+        name: "Angular",
+        progress: 50,
+      },
+      {
+        name: "node",
+        progress: 45,
+      },
+      {
+        name: "tailwind",
+        progress: 45,
+      },
+      {
+        name: "tauri",
+        progress: 40,
+      },
+      {
+        name: "Sass",
+        progress: 25,
+      },
+    ],
+  },
+  {
     name: "DevOps & Cloud",
     progress: 40,
     icon: faServer,
@@ -148,45 +187,6 @@ const skillTree = [
       {
         name: "K8s",
         progress: 15,
-      },
-    ],
-  },
-  {
-    name: "Frontend, JS & Web",
-    progress: 40,
-    icon: faJs,
-    children: [
-      {
-        name: "React",
-        progress: 85,
-      },
-      {
-        name: "HTML + CSS",
-        progress: 85,
-      },
-      {
-        name: "Vue 3",
-        progress: 55,
-      },
-      {
-        name: "node",
-        progress: 45,
-      },
-      {
-        name: "tailwind",
-        progress: 45,
-      },
-      {
-        name: "Angular",
-        progress: 25,
-      },
-      {
-        name: "Sass",
-        progress: 25,
-      },
-      {
-        name: "tauri",
-        progress: 45,
       },
     ],
   },
@@ -216,6 +216,8 @@ const skillTree = [
 ]
 
 const Skills = ({ startOffset }) => {
+  const [openIndex, setOpenIndex] = React.useState(-1)
+
   return (
     <>
       <ParallaxLayer
@@ -243,6 +245,10 @@ const Skills = ({ startOffset }) => {
               progress={obj.progress}
               icon={obj.icon}
               children={obj.children}
+              isOpen={openIndex >= 0 && openIndex == i}
+              onExpand={() =>
+                setOpenIndex(openIndex >= 0 && openIndex == i ? null : i)
+              }
             />
           )
         })}
@@ -251,8 +257,8 @@ const Skills = ({ startOffset }) => {
   )
 }
 
-// TODO: Show summary of children as text by flat mapping without expand
-// TODO: Collapse others on expand
+// Show summary of children as text by flat mapping without expand
+// Collapse others on expand
 const SkillSection = ({
   name,
   progress,
@@ -260,8 +266,10 @@ const SkillSection = ({
   condensed,
   icon,
   onExpand,
+  isOpen,
 }) => {
-  const [isOpen, setOpen] = React.useState(false)
+  const [openIndex, setOpenIndex] = React.useState(-1)
+
   const [ref, { height: viewHeight }] = useMeasure()
   const { height, opacity, y } = useSpring({
     from: { height: 0, opacity: 0, y: 0 },
@@ -285,7 +293,7 @@ const SkillSection = ({
         }}
       >
         <a.div ref={ref} style={{ y }}>
-          {children.map(obj => {
+          {children.map((obj, i) => {
             return (
               <SkillSection
                 key={obj.name}
@@ -294,12 +302,16 @@ const SkillSection = ({
                 icon={obj.icon}
                 children={obj.children}
                 condensed={true}
+                isOpen={openIndex >= 0 && openIndex == i}
+                onExpand={() =>
+                  setOpenIndex(openIndex >= 0 && openIndex == i ? null : i)
+                }
               />
             )
           })}
         </a.div>
       </a.div>
-      <div className="expand-indicator" onClick={() => setOpen(!isOpen)}>
+      <div className="expand-indicator" onClick={onExpand}>
         <span>{isOpen ? "Hide" : "Show"} details</span>
         <TurnArrow open={isOpen} />
       </div>
