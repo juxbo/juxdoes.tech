@@ -10,12 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install -g gatsby-cli
-      - name: Build Gatsby Site
-        uses: jzweifel/gatsby-cli-github-action@master
-        with:
-          gatsby-arg: build
-        env:
-          GATSBY_PROJECT_PATH: "./jux-does-tech"
+      - name: Build it
+        working-directory: ./jux-does-tech
+        run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
