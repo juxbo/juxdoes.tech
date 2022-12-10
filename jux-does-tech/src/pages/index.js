@@ -48,17 +48,17 @@ const Index = ({ data, location }) => {
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => scroll(2.2)}>
+            <a href="#" onClick={() => scroll(3)}>
               Projects
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => scroll(3)}>
+            <a href="#" onClick={() => scroll(4)}>
               About
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => scroll(4)}>
+            <a href="#" onClick={() => scroll(5)}>
               Contact
             </a>
           </li>
@@ -75,11 +75,11 @@ const Index = ({ data, location }) => {
         {/* <Background /> */}
         <Intro startOffset={0.2} handler={() => scroll(1)} />
         <Skills startOffset={1} />
-        <ProjectList posts={posts} startOffset={2.2} />
-        <About startOffset={3} />
+        <ProjectList posts={posts} startOffset={3} />
+        <About startOffset={4} />
         {/* <Background startOffset={1} /> */}
         {/* TODO: Built-with section */}
-        <ParallaxLayer offset={3.8} speed={0.6} className="parallax-footer">
+        <ParallaxLayer offset={4.8} speed={0.6} className="parallax-footer">
           <div className="section credits" style={{ fontSize: "12px" }}>
             <strong>
               Built with <Heart /> by{" "}

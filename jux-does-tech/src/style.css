@@ -505,6 +505,52 @@ pre[class*="language-"] {
   overflow: visible !important;
 }
 
+.bg-white {
+  background-color: white;
+}
+.skilltree-content {
+  will-change: transform, opacity, height;
+  margin-left: 6px;
+  padding: 0px 0px 0px 14px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+.no-bottom-pad {
+  padding-bottom: var(--spacing-2);
+}
+.skill-entry {
+  display: inline;
+}
+.skill-entry-summary {
+  display: inline-block;
+  margin: var(--spacing-2) 0;
+}
+.skill-entry-summary * {
+  display: inline;
+}
+.skill-entry-summary-text {
+  display: block;
+  margin: var(--spacing-2) 0;
+}
+.skill-entry-summary-icon {
+  display: inline-block;
+  margin: 0 var(--spacing-2);
+}
+.expand-indicator {
+  width: 100%;
+  padding: var(--spacing-1) 0;
+  margin: var(--spacing-2) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.expand-indicator:hover {
+  background-color: var(--color-accent);
+}
+.expand-indicator span {
+  margin-right: 1em;
+  user-select: none;
+}
 .main-nav {
   float: left;
   position: absolute;
@@ -538,6 +584,10 @@ pre[class*="language-"] {
 
 .main-nav a:active {
   color: var(--color-text-light);
+}
+
+.no-margin {
+  margin: 0;
 }
 
 /* Media queries */
