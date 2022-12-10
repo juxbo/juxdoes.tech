@@ -126,7 +126,7 @@ const skillTree = [
   },
   {
     name: "Frontend, JS & Web",
-    progress: 40,
+    progress: 60,
     icon: faJs,
     children: [
       {
